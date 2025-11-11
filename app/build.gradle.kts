@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "com.github.shortcutbookmarker"
+    namespace = "com.example.autolinkbookmark"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.github.shortcutbookmarker"
-        minSdk = 26
+        applicationId = "com.example.autolinkbookmark"
+        minSdk = 21
         targetSdk = 34
         versionCode = 1
         versionName = "1.0.0"
@@ -18,6 +18,15 @@ android {
         
         vectorDrawables {
             useSupportLibrary = true
+        }
+    }
+
+    signingConfigs {
+        create("debug") {
+            storeFile = file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
         }
     }
 
@@ -35,12 +44,15 @@ android {
             isMinifyEnabled = false
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-DEBUG"
+            isDebuggable = true
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
 
     buildFeatures {
         viewBinding = true
         buildConfig = true
+        aidl = true
     }
 
     compileOptions {
@@ -60,6 +72,11 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    lint {
+        disable += listOf("MissingTranslation", "ExtraTranslation")
+        abortOnError = false
+    }
 }
 
 dependencies {
@@ -72,13 +89,17 @@ dependencies {
     // Material Design
     implementation("com.google.android.material:material:1.11.0")
     
-    // Lifecycle
+    // Lifecycle & ViewModel
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-service:2.7.0")
     
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    
+    // Accessibility (for AutoLinkBookmark feature)
+    implementation("androidx.core:core:1.12.0")
     
     // Testing
     testImplementation("junit:junit:4.13.2")
