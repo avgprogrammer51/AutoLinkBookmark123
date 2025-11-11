@@ -21,15 +21,6 @@ android {
         }
     }
 
-    signingConfigs {
-        create("debug") {
-            storeFile = file("debug.keystore")
-            storePassword = "android"
-            keyAlias = "androiddebugkey"
-            keyPassword = "android"
-        }
-    }
-
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -38,6 +29,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Use default debug signing for release (for CI builds)
             signingConfig = signingConfigs.getByName("debug")
         }
         debug {
@@ -45,14 +37,12 @@ android {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-DEBUG"
             isDebuggable = true
-            signingConfig = signingConfigs.getByName("debug")
         }
     }
 
     buildFeatures {
         viewBinding = true
         buildConfig = true
-        aidl = true
     }
 
     compileOptions {
@@ -67,7 +57,7 @@ android {
         )
     }
 
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -97,9 +87,6 @@ dependencies {
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-    
-    // Accessibility (for AutoLinkBookmark feature)
-    implementation("androidx.core:core:1.12.0")
     
     // Testing
     testImplementation("junit:junit:4.13.2")
