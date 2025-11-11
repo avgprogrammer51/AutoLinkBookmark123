@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Chrome Bookmarker</string>
+    <string name="app_header">📚 Shortcut Bookmarker</string>
+    
+    <!-- Buttons -->
+    <string name="scan_shortcuts">🔍 Scan</string>
+    <string name="export">💾 Export</string>
+    <string name="start_processing">▶ Start Processing</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="close">Close</string>
+    <string name="start">Start</string>
+    <string name="share">Share</string>
+    <string name="export_now">Export Now</string>
+    
+    <!-- Status Messages -->
+    <string name="ready_to_scan">Ready to scan for shortcuts</string>
+    <string name="scanning_shortcuts">Scanning for shortcuts…</string>
+    <string name="shortcuts_found">Found %d shortcuts</string>
+    <string name="no_shortcuts_found">No shortcuts found</string>
+    <string name="processing_item">Processing %1$d/%2$d: %3$s</string>
+    <string name="processing_complete">✓ Completed! Processed %d shortcuts</string>
+    <string name="exporting">Exporting bookmarks…</string>
+    <string name="export_success">Export successful!</string>
+    <string name="export_failed">Export failed</string>
+    <string name="scan_first">Please scan for shortcuts first</string>
+    
+    <!-- Dialogs -->
+    <string name="permission_required">Permission Required</string>
+    <string name="permission_message">This app needs storage permission to export bookmark files. Please grant access in the next screen.</string>
+    
+    <string name="no_shortcuts_title">No Shortcuts Found</string>
+    <string name="no_shortcuts_message">No Chrome shortcuts were detected.\n\nTo create shortcuts:\n1. Open Chrome\n2. Visit a website\n3. Menu → Add to Home screen\n\nThen scan again.</string>
+    
+    <string name="export_format">Choose Export Format</string>
+    <string name="export_success_message">Bookmarks exported to:\n%s\n\nTo import:\n1. Transfer to computer\n2. Open chrome://bookmarks\n3. Menu → Import bookmarks\n4. Select this file</string>
+    
+    <string name="start_processing_title">Start Processing?</string>
+    <string name="start_processing_message">This will open %d URLs in Chrome.\n\nNote: Due to Android limitations, you\'ll need to manually bookmark each page by tapping the star icon.\n\nRecommended: Use Export instead.</string>
+    
+    <string name="process_complete">Processing Complete</string>
+    <string name="process_complete_message">All URLs have been opened.\n\nRecommended: Export to HTML file for easy import into Chrome.</string>
+    
+    <string name="share_bookmarks">Share Bookmarks</string>
+    
+    <!-- Content Descriptions -->
+    <string name="website_icon">Website icon</string>
+    <string name="bookmarked">Bookmarked</string>
+    
+    <!-- Empty State -->
+    <string name="no_shortcuts">No shortcuts</string>
+    <string name="no_shortcuts_yet">No shortcuts found yet.\nTap Scan to search for Chrome shortcuts.</string>
+    
+    <!-- Misc -->
+    <string name="untitled">Untitled</string>
+</resources>
